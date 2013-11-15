@@ -1,8 +1,12 @@
-
 /*
  * GET home page.
  */
 
-exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
-};
+function index(req, res, next) {
+  res.locals.title = 'Places Demo';
+  res.render('index');
+}
+
+module.exports = function (app) {
+  app.get('/', index);
+}
