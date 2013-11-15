@@ -2,4 +2,8 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to #{title}.
+  #map
+
+  .wrapper
+    input#placesTF.input-large(type="text", autocomplete="off", autocorrect="off", autocapitalize="off", spellcheck="false", tabindex="0")
