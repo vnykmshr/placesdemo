@@ -63,6 +63,7 @@ function doQuery(query) {
 // format result entry
 function format(item) {
   return item;
+  // "id":"HI","text":"Hawaii","disabled":false,"locked":false}
 }
 
 // empty results when no match found
@@ -93,4 +94,11 @@ $(function () {
 
   // initialize location search
   initSelect2();
+
+  var input = document.getElementById('searchTextField');
+  var autocomplete = new google.maps.places.Autocomplete(input);
+  google.maps.event.addListener(autocomplete, 'place_changed', function () {
+    var place = autocomplete.getPlace();
+    $('#selected').text("Place selected:" + place.formatted_address)
+  });
 });
